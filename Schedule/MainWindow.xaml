@@ -1,0 +1,66 @@
+﻿<syncfusion:ChromelessWindow x:Class="Schedule.MainWindow"
+                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             xmlns:syncfusion="clr-namespace:Syncfusion.Windows.Shared;assembly=Syncfusion.Shared.WPF"
+                             xmlns:schedule="http://schemas.syncfusion.com/wpf"
+                             Title="АРМ" 
+                             Height="350" 
+                             Width="525"         
+                             syncfusion:SkinStorage.VisualStyle="Metro"
+                             CornerRadius="8"  
+                             AllowsTransparency="True"
+                             UseNativeChrome="True"
+                             TitleBarBackground="#FFFBFBFB"
+                             >
+    <Grid x:Name="LayoutRoot">
+
+        <schedule:SfSchedule
+                            x:Name="Schedule"
+                            IsHighLightWorkingHours="True" 
+                            WorkStartHour="9" 
+                            WorkEndHour="20" 
+                            ScheduleType="Week"  
+                            ShowNonWorkingHours="False"
+                            TimeMode="TwentyFourHours"
+                            TimeInterval="ThirtyMin" 
+                            MinorTickVisibility=" Visible"  
+                            MajorTickVisibility="Visible"
+                            ShowAllDay="False" 
+                            CurrentDateBackground="#E67E22"
+                            AllowEditing="False"  Resource="Hospital" DayHeaderOrder="OrderByDate">
+            <schedule:SfSchedule.ScheduleResourceTypeCollection>
+
+                <schedule:ResourceType TypeName="Hospital">
+
+                    <schedule:ResourceType.ResourceCollection>
+
+                        <schedule:Resource DisplayName="Apollo Hospital" ResourceName="ApolloHospital"/>
+
+                        <schedule:Resource DisplayName="Malar Hospital" ResourceName="MalarHospital"/>
+
+                    </schedule:ResourceType.ResourceCollection>
+
+                    <schedule:ResourceType.SubResourceType>
+
+                        <schedule:ResourceType TypeName="Department">
+
+                            <schedule:ResourceType.ResourceCollection>
+
+                                <schedule:Resource DisplayName="Eye Department" ResourceName="Eye"/>
+
+                                <schedule:Resource DisplayName="Heart Department" ResourceName="Heart"/>
+
+                            </schedule:ResourceType.ResourceCollection>
+
+                        </schedule:ResourceType>
+
+                    </schedule:ResourceType.SubResourceType>
+
+                </schedule:ResourceType>
+
+            </schedule:SfSchedule.ScheduleResourceTypeCollection>
+        </schedule:SfSchedule>
+
+    </Grid>
+
+</syncfusion:ChromelessWindow>
